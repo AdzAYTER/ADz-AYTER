@@ -29,9 +29,9 @@ def send_welcome(message):
 def show_shop_services(message):
     markup = ReplyKeyboardMarkup(resize_keyboard=True)
     
-    # បង្កើតប៊ូតុងសេវាកម្ម
-    btn_gemini = KeyboardButton("1 Gemini Pro 18$/m")
-    btn_chatgpt = KeyboardButton("2 Chat GPT Plus")
+    # បង្កើតប៊ូតុងសេវាកម្មថ្មី
+    btn_gemini = KeyboardButton("Gemini Pro 18 months 💲5")
+    btn_chatgpt = KeyboardButton("Chat GPT Plus 5 Months 💲7")
     btn_back = KeyboardButton("⬅️ ត្រឡប់ក្រោយ")
     
     # រៀបចំប៊ូតុង
@@ -45,9 +45,9 @@ def show_shop_services(message):
 # ==========================================
 # ៣. ពេលចុចសេវាកម្ម Gemini ឬ Chat GPT
 # ==========================================
-@bot.message_handler(func=lambda message: message.text in ["1 Gemini Pro 18$/m", "2 Chat GPT Plus"])
+@bot.message_handler(func=lambda message: message.text in ["Gemini Pro 18 months 💲5", "Chat GPT Plus 5 Months 💲7"])
 def handle_out_of_stock(message):
-    # មិនថាគេចុចមួយណាទេ គឺចេញសារដូចគ្នា
+    # ចេញសារអស់ស្ដុក
     bot.send_message(message.chat.id, "សុំទោស អស់ស្ដុកហើយបង ❌")
 
 
@@ -60,7 +60,8 @@ def handle_back(message):
 
 @bot.message_handler(func=lambda message: message.text == "👨🏻‍💻 Support")
 def handle_support(message):
-    bot.send_message(message.chat.id, "ត្រូវការជំនួយមែនទេ? សូមទម្លាក់សំណួររបស់អ្នកនៅទីនេះ... 💬")
+    # ដាក់ Username សម្រាប់ឲ្យគេទាក់ទង
+    bot.send_message(message.chat.id, "ត្រូវការជំនួយមែនទេ? សូមទាក់ទងមកកាន់ Admin តាមរយៈ ៖ @ADzAYTER 💬")
 
 @bot.message_handler(func=lambda message: message.text == "📥 Total oder")
 def handle_total_order(message):
